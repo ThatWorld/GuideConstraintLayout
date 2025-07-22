@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GuideConstraintlayout</string>
+    <string name="guide_text_2_1">它会在%ss后，被替换为自定义路径高亮</string>
+    <string name="finish">完成</string>
+    <string name="next">下一步</string>
+    <string name="guide_text_1_2">这是按钮</string>
+    <string name="guide_text_1_1">这里被高亮了</string>
+</resources>

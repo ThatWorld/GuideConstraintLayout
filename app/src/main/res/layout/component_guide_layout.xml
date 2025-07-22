@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <io.github.thatworld.widget.GuideConstraintLayout
+        android:id="@+id/guide_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:highlight_background_color="#80000000">
+
+        <!-- first -->
+        <io.github.thatworld.widget.GuideHighlightView
+            android:id="@+id/highlight_view_1_1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="48dp"
+            app:highlight_padding="12dp"
+            app:highlight_radius="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/guide_icon_1_1"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:rotation="180"
+            android:src="@drawable/ic_guide"
+            app:layout_constraintEnd_toEndOf="@id/highlight_view_1_1"
+            app:layout_constraintStart_toStartOf="@id/highlight_view_1_1"
+            app:layout_constraintTop_toBottomOf="@id/highlight_view_1_1" />
+
+        <TextView
+            android:id="@+id/guide_text_1_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/guide_text_1_1"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/guide_icon_1_1"
+            app:layout_constraintStart_toStartOf="@id/guide_icon_1_1"
+            app:layout_constraintTop_toBottomOf="@id/guide_icon_1_1" />
+
+        <!-- second -->
+        <io.github.thatworld.widget.GuideHighlightView
+            android:id="@+id/highlight_view_1_2"
+            android:layout_width="92dp"
+            android:layout_height="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/guide_icon_1_2"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:rotation="120"
+            android:src="@drawable/ic_guide"
+            app:layout_constraintBottom_toBottomOf="@id/highlight_view_1_2"
+            app:layout_constraintStart_toEndOf="@id/highlight_view_1_2"
+            app:layout_constraintTop_toTopOf="@id/highlight_view_1_2" />
+
+        <TextView
+            android:id="@+id/guide_text_1_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:text="@string/guide_text_1_2"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/guide_icon_1_2"
+            app:layout_constraintStart_toStartOf="@+id/guide_icon_1_2"
+            app:layout_constraintTop_toBottomOf="@+id/guide_icon_1_2" />
+
+        <!-- next -->
+        <TextView
+            android:id="@+id/guide_1_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:background="@drawable/text_button_background"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </io.github.thatworld.widget.GuideConstraintLayout>
+
+    <io.github.thatworld.widget.GuideConstraintLayout
+        android:id="@+id/guide_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:highlight_background_color="#80000000">
+
+        <io.github.thatworld.widget.GuideHighlightView
+            android:id="@+id/highlight_view_2_1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="66dp"
+            app:highlight_padding="12dp"
+            app:highlight_radius="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/guide_icon_2_1"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:rotation="180"
+            android:src="@drawable/ic_guide"
+            app:layout_constraintEnd_toEndOf="@+id/highlight_view_2_1"
+            app:layout_constraintStart_toStartOf="@id/highlight_view_2_1"
+            app:layout_constraintTop_toBottomOf="@+id/highlight_view_2_1" />
+
+        <TextView
+            android:id="@+id/guide_text_2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/guide_text_2_1"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/guide_icon_2_1"
+            app:layout_constraintTop_toBottomOf="@id/guide_icon_2_1" />
+
+        <TextView
+            android:id="@+id/guide_1_finish_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/text_button_background"
+            android:text="@string/finish"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/guide_text_2_1"
+            app:layout_constraintTop_toBottomOf="@id/guide_text_2_1" />
+
+    </io.github.thatworld.widget.GuideConstraintLayout>
+
+</FrameLayout>
