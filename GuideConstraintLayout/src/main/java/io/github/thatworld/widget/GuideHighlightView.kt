@@ -1,7 +1,6 @@
 package io.github.thatworld.widget
 
 import android.content.Context
-import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.withStyledAttributes
@@ -18,58 +17,65 @@ class GuideHighlightView @JvmOverloads constructor(
     defStyleRes
 ) {
     private var mHighlightRadius = 12f
-    private var mHighlightPadding = 4f
-
-    private var mHighlightPath: Path? = null
+    private var mHighlightSpace = 4f
 
     init {
         context.withStyledAttributes(attrs, R.styleable.GuideHighlightView) {
             mHighlightRadius = getDimension(R.styleable.GuideHighlightView_highlight_radius, mHighlightRadius)
-            mHighlightPadding = getDimension(R.styleable.GuideHighlightView_highlight_padding, mHighlightPadding)
+            mHighlightSpace = getDimension(R.styleable.GuideHighlightView_highlight_space, mHighlightSpace)
         }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val minSize = (maxOf(mHighlightRadius, mHighlightPadding) * 2).toInt()
-        val width = resolveSize(minSize, widthMeasureSpec)
-        val height = resolveSize(minSize, heightMeasureSpec)
-        setMeasuredDimension(width, height)
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
+
+        val minWidth = if (widthMode == MeasureSpec.AT_MOST)
+            mHighlightSpace * 2 // left and right padding
+        else
+            MeasureSpec.getSize(widthMeasureSpec) + mHighlightSpace
+
+        val minHeight = if (heightMode == MeasureSpec.AT_MOST)
+            mHighlightSpace * 2 // top and bottom padding
+        else
+            MeasureSpec.getSize(heightMeasureSpec) + mHighlightSpace
+
+        setMeasuredDimension(minWidth.toInt(), minHeight.toInt())
     }
+
+    // Test preview
+    // override fun onDraw(canvas: Canvas) {
+    //     super.onDraw(canvas)
+    //
+    //     val left = 0f
+    //     val top = 0f
+    //     val right = width.toFloat()
+    //     val bottom = height.toFloat()
+    //
+    //     canvas.drawRoundRect(left, top, right, bottom, mHighlightRadius, mHighlightRadius, mPaint)
+    // }
 
     val highlightRadius
         get() = mHighlightRadius
 
-    val highlightPadding
-        get() = mHighlightPadding
-
-    val highlightPath: Path?
-        get() = mHighlightPath
+    val highlightSpace
+        get() = mHighlightSpace
 
     /**
-     * 设置高亮区域的半径, 以像素为单位.
+     * 设置高亮区域的半径。
      */
-    fun highlightRadius(radius: Float) {
+    fun setHighlightRadius(radius: Float) {
         mHighlightRadius = radius
         invalidate()
     }
 
     /**
-     * 设置高亮区域的内边距, 以像素为单位.
+     * 设置高亮区域的内部空间距离。
      *
-     * @param padding 内边距大小
+     * @param space 内部空间距离
      */
-    fun highlightPadding(padding: Float) {
-        mHighlightPadding = padding
-        invalidate()
-    }
-
-    /**
-     * 设置自定义路径.
-     *
-     * @param path 自定义高亮路径
-     */
-    fun highlightPath(path: Path) {
-        mHighlightPath = path
+    fun setHighlightSpace(space: Float) {
+        mHighlightSpace = space
         invalidate()
     }
 }

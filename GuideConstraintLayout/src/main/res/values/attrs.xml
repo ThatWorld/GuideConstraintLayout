@@ -8,7 +8,7 @@
     <declare-styleable name="GuideHighlightView">
         <!-- 高亮区域圆角 -->
         <attr name="highlight_radius" format="dimension|float" />
-        <!-- 高亮区域内边距 -->
-        <attr name="highlight_padding" format="dimension|float" />
+        <!-- 高亮区域内间距 -->
+        <attr name="highlight_space" format="dimension|float" />
     </declare-styleable>
 </resources>

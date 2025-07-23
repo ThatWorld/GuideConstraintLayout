@@ -11,18 +11,16 @@
         android:id="@+id/guide_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:highlight_background_color="#80000000">
 
         <!-- first -->
         <io.github.thatworld.widget.GuideHighlightView
             android:id="@+id/highlight_view_1_1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="48dp"
-            app:highlight_padding="12dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             app:highlight_radius="8dp"
+            app:highlight_space="90dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +28,7 @@
             android:id="@+id/guide_icon_1_1"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:rotation="180"
             android:src="@drawable/ic_guide"
             app:layout_constraintEnd_toEndOf="@id/highlight_view_1_1"
@@ -100,7 +98,7 @@
         android:id="@+id/guide_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:highlight_background_color="#80000000">
 
         <io.github.thatworld.widget.GuideHighlightView
@@ -109,8 +107,8 @@
             android:layout_height="48dp"
             android:layout_marginStart="66dp"
             android:layout_marginTop="66dp"
-            app:highlight_padding="12dp"
             app:highlight_radius="18dp"
+            app:highlight_space="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

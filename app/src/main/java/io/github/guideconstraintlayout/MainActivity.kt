@@ -35,18 +35,18 @@ class MainActivity : AppCompatActivity() {
         componentGuideBinding.guide2.isVisible = false
 
         // 目标布局后绑定高亮布局
+        binding.text1.setOnClickListener { Toast.makeText(applicationContext, "文本被点击!", Toast.LENGTH_SHORT).show() }
         binding.text1.post {
             componentGuideBinding.guide1.bindTarget(binding.text1, componentGuideBinding.highlightView11)
         }
 
         // 目标布局后绑定高亮布局
-        binding.button1.setOnClickListener { Toast.makeText(applicationContext, "按钮1被点击!", Toast.LENGTH_SHORT).show() }
+        binding.button1.setOnClickListener { Toast.makeText(applicationContext, "按钮被点击!", Toast.LENGTH_SHORT).show() }
         binding.button1.post {
             componentGuideBinding.guide1.bindTarget(binding.button1, componentGuideBinding.highlightView12)
-            // componentGuideBinding.highlightView12.setOnClickListener { /* 拦截事件穿透至button1 */ }
+            componentGuideBinding.guide1.setPreventTouchPenetrateToTarget(true) // 阻止触摸穿透到目标View
         }
 
-        componentGuideBinding.guide2.setOnClickListener { /* 禁止事件穿透 */ }
         // 下一个高亮布局
         componentGuideBinding.guide1NextButton.setOnClickListener {
             componentGuideBinding.guide1.isVisible = false
@@ -89,17 +89,17 @@ class MainActivity : AppCompatActivity() {
                     val height = binding.text1.height.toFloat()
                     val radius = sqrt(width * width + height * height) / 2f
 
-                    val path = Path().apply {
+                    componentGuideBinding.highlightView21.setHighlightSpace(radius / 4)// 更新space
+                    componentGuideBinding.guide2.bindTarget(binding.text1, componentGuideBinding.highlightView21, Path().apply {
                         reset()
-                        addCircle(width / 2f, height / 2f, radius, Path.Direction.CW)
+                        addCircle(
+                            binding.text1.left + width / 2f,
+                            binding.text1.top + height / 2f,
+                            radius,
+                            Path.Direction.CW,
+                        )
                         close()
-                    }
-
-                    componentGuideBinding.highlightView21.highlightPath(Path(path).apply { // 复制路径, 偏移到指定位置
-                        offset(binding.text1.left.toFloat(), binding.text1.top.toFloat())
-                    })
-                    componentGuideBinding.highlightView21.highlightPadding(radius / 4)// 更新padding
-                    componentGuideBinding.guide2.refresh(binding.text1, componentGuideBinding.highlightView21) // 刷新高亮视图位置和大小
+                    }) // 重新绑定目标布局和自定义路径
                 }
                 delay(1000)
             }

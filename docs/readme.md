@@ -21,7 +21,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="66dp"
             android:layout_marginTop="66dp"
-            app:highlight_padding="12dp"
+            app:highlight_space="12dp"
             app:highlight_radius="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
